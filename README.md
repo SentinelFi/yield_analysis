@@ -1,4 +1,51 @@
-Here’s the article reformatted with **Unicode symbols** (e.g., `π`, `λ`, `p*`) for maximum readability on GitHub, paired with MathJax-compatible equations:
+# Monte Carlo Simulation Report
+
+This simulation models flight-delay insurance underwriting using **10,000 trials**, where delay probabilities (`p`) range between **1% and 20%**. The expected yield is calculated as:
+
+\[
+\text{Yield} = \frac{M \cdot (\pi - \lambda \cdot p)}{C} \times 100\%
+\]
+
+with **π = $20**, **λ = $100**, **M = 10,000** policies, and **C = $100,000** capital. Results show an **average yield of 96.1%**, meaning capital nearly doubles on average. The **5th percentile yield (worst 5% cases) is +10%**, ensuring profitability even in unfavorable conditions, while the **95th percentile yield is +180%**, indicating high upside potential. The histogram confirms a right-skewed distribution, with most outcomes between **50% and 150% yield**. No negative yields suggest low default risk unless **p exceeds 20%**. Risk mitigation strategies include **dynamic pricing (π), increasing capital reserves (C), and real-time probability monitoring (p)** to prevent catastrophic losses. 🚀
+
+
+
+# Running Monte Carlo Simulation Locally
+
+## **Step 1: Install Python**
+Check if Python is installed:
+```sh
+python --version
+```
+
+## **Step 2: Create Virtual Environment (Optional)**
+```sh
+python -m venv venv/monte_carlo_env
+```
+Activate:
+- **Windows**:  
+  ```sh
+  venv\monte_carlo_env\Scripts\activate
+  ```
+- **Mac/Linux**:  
+  ```sh
+  source venv/monte_carlo_env/bin/activate
+  ```
+
+## **Step 3: Install Dependencies**
+```sh
+pip install numpy pandas matplotlib
+```
+
+## **Step 5: Run the Script**
+Navigate to the script directory and execute:
+```sh
+python monte_carlo_simulation.py
+```
+
+---
+
+![alt text](image.png)
 
 ---
 
@@ -114,3 +161,6 @@ For `π = $20`, `λ = $100`, `M = 10,000`, `C = $100,000`:
 Flight-delay insurance underwriting hinges on mathematical optimization. While raising premiums or scaling policy sales boosts returns, investors must model **worst-case scenarios** to avoid catastrophic losses. Monte Carlo simulations provide a robust way to:  
 - Quantify the distribution of outcomes.  
 - Balance profitability with risk tolerance.  
+
+
+
