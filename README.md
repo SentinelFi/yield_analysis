@@ -113,3 +113,78 @@ Monte Carlo helps assess **expected profitability and tail risks**.
 --- 
 
 **Note**: All equations use MathJax; Greek symbols (π, λ) are rendered in Unicode for readability.
+
+---
+
+# Flight-Delay Insurance Underwriting Highlights  
+
+## 1. Introduction / Setup  
+> *“In this flight-delay insurance model, the investor collects a premium (π) for each policy sold and pays out λ if the flight is delayed. The delay probability, p, varies from **1% to 20%**. We aim to estimate how the investor’s yield shifts when premium, payout, the number of policies (M), and initial capital (C) change.”*  
+
+---
+
+## 2. Key Formula  
+The **expected yield** is defined as:  
+
+$$  
+\mathbb{E}[\text{Yield}] = \frac{M (\pi - \lambda p)}{C} \times 100\%  
+$$  
+
+- \(M\): Number of policies  
+- \(π\): Premium per policy  
+- \(λ\): Payout per delay  
+- \(p\): Probability of delay  
+- \(C\): Initial capital  
+
+---
+
+## 3. Yield Ranges  
+For π = \$10, λ = \$100, M = 10,000, and C = \$100k:  
+
+| Delay Probability (p) | Yield       |  
+|------------------------|-------------|  
+| **1%**                 | **+90%**    |  
+| **20%**                | **-100%**   |  
+
+---
+
+## 4. Maximizing Yield  
+Increasing the premium to **π = \$20** (with λ = \$100 and M = 10,000):  
+
+| Delay Probability (p) | Yield       |  
+|------------------------|-------------|  
+| **1%**                 | **+190%**   |  
+| **5%**                 | **+150%**   |  
+
+---
+
+## 5. Break-Even Probability  
+The break-even condition is:  
+
+$$  
+\pi = \lambda p^* \quad \Rightarrow \quad p^* = \frac{\pi}{\lambda}  
+$$  
+
+**Example**:  
+- For π = \$10 and λ = \$100: **p* = 10%**  
+- Higher π or lower λ **raises the break-even threshold**.  
+
+---
+
+## 6. Strategic Tradeoffs  
+> *“An ‘optimal’ strategy balances high expected yield with acceptable worst-case losses. Selling more policies (M) or charging higher premiums (π) can amplify returns but also heightens risk if delays surge.”*  
+
+**Key levers**:  
+- 🚀 **High M/π**: Amplifies gains (and losses).  
+- ⚖️ **Balancing**: Use Monte Carlo simulations to model tail risks.  
+
+---
+
+## 7. Final Takeaway  
+> *“In practice, weigh potential profits at low delay probabilities against catastrophic losses if delays spike. Monte Carlo simulations help optimize premiums/payouts to balance returns and tail risks.”*  
+
+---
+
+**Note**:  
+- Equations use MathJax; Greek symbols (π, λ) are Unicode.  
+- Highlighted values (e.g., **+190%**) emphasize critical insights.  
