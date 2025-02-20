@@ -1,127 +1,116 @@
-Here’s the reformatted article-style explanation with MathJax, Unicode, and detailed analysis:
+Here’s the article reformatted with **Unicode symbols** (e.g., `π`, `λ`, `p*`) for maximum readability on GitHub, paired with MathJax-compatible equations:
 
 ---
 
-# Flight-Delay Insurance Underwriting: A Mathematical Analysis  
+# Flight-Delay Insurance Underwriting: Balancing Risk and Reward  
 
 ## Introduction  
-Flight-delay insurance underwriting involves balancing risk and reward. Investors (or insurers) collect **premiums** (denoted as \( \pi \)) from customers who purchase policies to protect against financial losses from delayed flights. If a flight is delayed, the insurer pays a **payout** (denoted as \( \lambda \)). The core challenge lies in pricing premiums and payouts while accounting for the **probability of delay** (\( p \)), which typically ranges from 1% to 20% depending on routes, seasons, and airlines.  
+In flight-delay insurance underwriting, an investor sells policies to travelers. For each policy:  
+- The investor collects a **premium** (denoted as `π`, e.g., $10).  
+- If the flight is delayed, the investor pays a **payout** (denoted as `λ`, e.g., $100).  
 
-This article breaks down the mathematical framework for calculating profitability, explores break-even conditions, and highlights strategic tradeoffs using simulations.  
-
----
-
-## The Model  
-
-### Key Variables  
-- \( \pi \): Premium per policy (e.g., \$10).  
-- \( \lambda \): Payout per delayed flight (e.g., \$100).  
-- \( p \): Probability of a flight delay (1% ≤ \( p \) ≤ 20%).  
-- \( M \): Number of policies sold.  
-- \( C \): Initial capital (e.g., \$100,000).  
+The probability of delay (`p`) varies between **1% and 20%**, depending on factors like flight routes and weather. This article explains how investors model profitability, adjust pricing, and manage risks.  
 
 ---
 
-## Profitability and Yield  
+## Key Formula: Expected Yield  
+The investor’s profit (or loss) depends on three variables:  
+- `M`: Number of policies sold.  
+- `C`: Initial capital (e.g., $100,000).  
+- `p`: Probability of delay.  
 
-### Final Capital  
-The investor’s capital after selling \( M \) policies is:  
-
-$$  
-\text{Vault}_{\text{end}} = C + M (\pi - \lambda p)  
-$$  
-
-This formula captures two opposing forces:  
-1. **Revenue**: \( M \pi \) (total premiums collected).  
-2. **Expected Loss**: \( M \lambda p \) (total payouts if delays occur at probability \( p \)).  
-
-### Expected Yield  
-The percentage return on initial capital \( C \) is:  
+The **expected yield** (percentage return on capital) is calculated as:  
 
 $$  
-\text{Yield} = \frac{M (\pi - \lambda p)}{C} \times 100\%  
+\text{Yield} = \frac{M \cdot (π - λ \cdot p)}{C} \times 100\%  
 $$  
 
-#### Example 1:  
-- \( \pi = \$10 \), \( \lambda = \$100 \), \( M = 10,000 \), \( C = \$100,000 \).  
-- At \( p = 1\% \):  
-  $$  
-  \text{Yield} = \frac{10,000 \times (10 - 100 \times 0.01)}{100,000} \times 100\% = 90\%  
-  $$  
-- At \( p = 20\% \):  
-  $$  
-  \text{Yield} = \frac{10,000 \times (10 - 100 \times 0.20)}{100,000} \times 100\% = -100\%  
-  $$  
+### Example 1: Base Case  
+Assume:  
+- `π = $10`, `λ = $100`, `M = 10,000`, `C = $100,000`.  
+
+| Delay Probability (`p`) | Yield       |  
+|--------------------------|-------------|  
+| 1%                       | **+90%**    |  
+| 20%                      | **-100%**   |  
+
+At 1% delay probability, the investor earns a 90% return. At 20%, they lose all capital.  
 
 ---
 
-## Break-Even Analysis  
-The **break-even probability** (\( p^* \)) is the delay probability at which the investor neither profits nor loses:  
+## Break-Even Probability (`p*`)  
+The **break-even point** occurs when premiums equal expected payouts:  
 
 $$  
-\pi = \lambda p^* \quad \Rightarrow \quad p^* = \frac{\pi}{\lambda}  
+π = λ \cdot p^* \quad ⇒ \quad p^* = \frac{π}{λ}  
 $$  
 
-- **Interpretation**: If the actual delay probability \( p < p^* \), the investor profits. If \( p > p^* \), they incur losses.  
-- **Example**:  
-  - For \( \pi = \$10 \) and \( \lambda = \$100 \), \( p^* = 10\% \).  
-  - Raising the premium to \( \pi = \$20 \) increases \( p^* \) to 20%, making profitability possible even at higher delay probabilities.  
+- If the actual delay probability `p < p*`, the investor profits.  
+- If `p > p*`, they lose money.  
+
+### Example 2: Adjusting Premiums  
+Raising the premium to `π = $20` shifts the break-even point:  
+
+$$  
+p^* = \frac{20}{100} = 20\%  
+$$  
+
+Now, the investor breaks even even at a 20% delay probability.  
 
 ---
 
 ## Sensitivity Analysis  
 
-### Impact of Premium Changes  
-Increasing \( \pi \) directly boosts profitability:  
+### 1. Increasing Premiums  
+Doubling the premium (`π = $20`) dramatically improves yields at low delays:  
 
-| Scenario       | \( \pi \) | \( p \) | Yield  |  
-|----------------|-----------|---------|--------|  
-| Baseline       | \$10      | 1%      | 90%    |  
-| Higher Premium | \$20      | 1%      | 190%   |  
-| Break-Even     | \$20      | 20%     | 0%     |  
+| Scenario       | `p`  | Yield  |  
+|----------------|------|--------|  
+| 1% delay       | 1%   | +190%  |  
+| 5% delay       | 5%   | +150%  |  
 
-### Amplification by Policy Volume  
-- Selling more policies (\( M \)) magnifies both gains and losses:  
-  - Doubling \( M \) doubles the numerator in the yield formula, amplifying returns.  
-  - However, a surge in delays could lead to catastrophic losses (e.g., -100% yield at \( p = 20\% \)).  
+### 2. Selling More Policies (`M`)  
+Scaling policy sales amplifies gains **and** losses:  
+- Doubling `M` doubles the numerator in the yield formula.  
+- At `p = 20%`, doubling `M` would turn a -100% yield into a -200% loss (if capital allows).  
 
 ---
 
-## Risk Management with Monte Carlo Simulations  
-To account for uncertainty in \( p \), we simulate random delay probabilities (1% to 20%) across thousands of trials.  
+## Risk Management: Monte Carlo Simulations  
+Since `p` is uncertain, investors simulate thousands of scenarios:  
 
-### Simulation Steps:  
-1. **Draw \( p \)** from a uniform distribution (1% to 20%).  
-2. **Compute Yield** for each trial using \( \text{Yield} = \frac{M (\pi - \lambda p)}{C} \times 100\% \).  
+1. **Randomize `p`**: Draw `p` uniformly between 1% and 20%.  
+2. **Compute Outcomes**: Calculate yield for each trial.  
 3. **Analyze Results**:  
-   - Expected return (mean yield).  
+   - Mean expected yield.  
    - Volatility (standard deviation).  
    - Worst-case losses (e.g., 5th percentile).  
 
-#### Example Output:  
-- For \( \pi = \$20 \), \( \lambda = \$100 \), \( M = 10,000 \), \( C = \$100,000 \):  
-  - **Mean Yield**: ~80%  
-  - **Worst-Case (5th percentile)**: -50%  
+### Example Simulation Results  
+For `π = $20`, `λ = $100`, `M = 10,000`, `C = $100,000`:  
+- **Mean Yield**: ~80%  
+- **Worst-Case (5th percentile)**: -50%  
 
 ---
 
 ## Strategic Takeaways  
-1. **Premium vs. Payout**:  
-   - Higher \( \pi \) raises the break-even threshold (\( p^* \)), allowing profitability at higher delays.  
-   - Higher \( \lambda \) reduces tolerance for delays.  
 
-2. **Policy Volume**:  
-   - Increasing \( M \) amplifies returns but also risk.  
+### 1. Tradeoffs  
+- **Higher Premiums (`π`)**: Raise break-even thresholds (`p*`) but attract fewer customers.  
+- **Lower Payouts (`λ`)**: Reduce liability but may make policies less appealing.  
 
-3. **Initial Capital**:  
-   - Larger \( C \) dampens percentage swings (e.g., \$1M capital cuts yield volatility by 90% vs. \$100k).  
+### 2. Policy Volume (`M`)  
+- Scaling `M` magnifies returns but requires sufficient capital to absorb losses.  
 
-4. **Tail Risk**:  
-   - Even with favorable average conditions, extreme delay scenarios (e.g., 20%) can wipe out capital.  
+### 3. Capital Buffer (`C`)  
+- Larger `C` reduces yield volatility. For example, $1M capital cuts percentage swings by 90% compared to $100k.  
+
+### 4. Tail Risk  
+- Even with favorable average conditions, extreme delays (e.g., 20%) can wipe out capital.  
 
 ---
 
 ## Conclusion  
-Flight-delay underwriting hinges on mathematical optimization. While raising premiums or selling more policies can boost returns, insurers must model worst-case scenarios to avoid ruinous losses. Monte Carlo simulations provide a robust way to quantify tradeoffs and design strategies that balance profitability with risk tolerance.  
-
-**Final Note**: In practice, real-world insurers also factor in operational costs, regulatory constraints, and customer demand elasticity—elements beyond the scope of this simplified model.  
+Flight-delay insurance underwriting hinges on mathematical optimization. While raising premiums or scaling policy sales boosts returns, investors must model **worst-case scenarios** to avoid catastrophic losses. Monte Carlo simulations provide a robust way to:  
+- Quantify the distribution of outcomes.  
+- Balance profitability with risk tolerance.  
