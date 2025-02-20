@@ -1,9 +1,11 @@
 # Flight-Delay Insurance Underwriting Report
 
 ## 1. Introduction  
-In this model, an investor collects a **premium** (π) for each flight-delay policy sold.  
-If a flight is **delayed**, the investor pays a **payout** (λ).  
-The probability of delay, *p*, varies from **1% to 20%**.  
+In this model, 
+* an investor collects a **premium** (π) for each flight-delay policy sold.  
+* If a flight is **delayed**, the investor pays a **payout** (λ).  
+* he probability of delay, *p*, varies from **1% to 20%**.  
+
 This report estimates how **yield** changes when adjusting premium, payout, the number of policies (*M*), and initial capital (*C*).
 
 ---
